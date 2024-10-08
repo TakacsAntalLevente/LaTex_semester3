@@ -1,0 +1,460 @@
+\documentclass[12]{article}
+\usepackage{t1enc} % mindig az első sor
+%láthatatlan beállítások rész PREAMBULUM
+%filebeállítások, csomagtöltések
+\usepackage[magyar]% kommentben sortörés sem dolgozza fel
+%alapvetően panarncs nem tördelhet szőközzel, sortöréssel,de kommentel be lehet csapni
+{babel}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{graphicx}
+\usepackage{hulipsum}
+\usepackage{xcolor}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{lipsum}
+\usepackage{subcaption}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{booktabs}
+\usepackage{verbatim}
+\usepackage[utf8]{inputenc}
+%undefined control sequence: nem ismert parancs
+%megoldás: elgépelés, vagy csomaghiány
+%\usepackage{•}
+% % = Komment
+\pagestyle{fancy}
+\fancyhf{} 
+\geometry{left=1in, right=1in, top=1in, bottom=1in, headheight=15pt}
+
+% Fejléc és lábléc beállítása
+\pagestyle{fancy}
+\fancyhf{} % Töröljük az alapértelmezett fejlécet és láblécet
+
+% Fejléc beállítása páros oldalakon
+\fancyhead[LE]{\leftmark} % Páros oldal: aktuális szakasz neve
+\fancyhead[RE]{\rightmark} % Páros oldal: aktuális alfejezet neve
+\fancyhead[RO]{\thepage} % Páros oldal: oldalszám a külső sarkában
+
+% Fejléc beállítása páratlan oldalakon
+\fancyhead[LO]{\thepage} 
+\fancyhead[RE]{\leftmark} 
+
+% Lábléc beállítása mindkét oldalon
+\fancyfoot[C]{Miskolci egyetem}
+
+% Választóvonal a lábléc fölé
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0pt} 
+
+% Testreszabás a címoldalon
+\fancypagestyle{plain}{%
+  \fancyhf{} 
+  \fancyfoot[RO]{\thepage} 
+  \renewcommand{\footrulewidth}{0.4pt}
+}
+
+\begin{document}
+
+%Képjegyzék
+\listoffigures
+\contentsline {figure}{\numberline {1}{\ignorespaces Példa kép}}{9}{figure.caption.2}
+\contentsline {figure}{\numberline {2}{\ignorespaces Normális kép}}{11}{figure.caption.4}
+\contentsline {figure}{\numberline {3}{\ignorespaces Valami}}{11}{figure.caption.4}
+
+%Táblázat jegyzék
+\listoftables
+
+%%címhez: KÜLÖN ADATBEVITEL + KIIRATÁS
+%adatbevitel:
+\title{Dokumentum címe} % lehet benne formázás, sortörés, stb.: pl.: alcím
+\author{Takács Antal Levente}
+\date{2024/2025\\I. félév}
+% Üresen nincsen dátum
+
+%kiíratás
+\maketitle
+
+
+
+
+
+\newpage
+
+\section{3.óra 1.feladat}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=5cm, height=5cm, keepaspectratio]{C:/Users/au090647/Desktop/Új mappa/3.óra/szines.jpg}
+    \caption{Példa kép}
+\end{figure}
+
+
+\lipsum[1]
+
+
+Itt látható a kép \includegraphics[width=5cm, keepaspectratio]{C:/Users/au090647/Desktop/Új mappa/3.óra/szines.jpg} és folytatódik a szöveg itt mellette. \lipsum[2]
+
+
+\lipsum[3]
+\newpage
+
+\lipsum[1]
+
+
+Itt látható a kép \includegraphics[width=5cm, keepaspectratio]{C:/Users/au090647/Desktop/Új mappa/3.óra/szines.jpg} és folytatódik a szöveg itt mellette. \lipsum[2]
+
+
+\lipsum[3]
+
+
+\begin{figure}[htbp]
+    \centering
+Itt látható a kép \includegraphics[width=5cm, keepaspectratio]{C:/Users/au090647/Desktop/Új mappa/3.óra/szepia.jpg}
+\caption{Úszó kép}  és folytatódik a szöveg itt mellette. és folytatódik a szöveg itt mellette. \lipsum[4]
+\end{figure}
+
+
+\lipsum[4]
+\newpage
+
+\lipsum[1]
+
+
+Itt látható a kép \includegraphics[width=5cm, keepaspectratio]{C:/Users/au090647/Desktop/Új mappa/3.óra/szines.jpg} és folytatódik a szöveg itt mellette. \lipsum[2]
+
+% Második bekezdés lorem ipsum
+\lipsum[3]
+
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=5cm, keepaspectratio]{C:/Users/au090647/Desktop/Új mappa/3.óra/szepia.jpg}
+    \includegraphics[width=5cm, keepaspectratio]{C:/Users/au090647/Desktop/Új mappa/3.óra/szines.jpg}
+    \caption{Normális kép}
+    \reflectbox{\includegraphics[width=5cm, keepaspectratio]{C:/Users/au090647/Desktop/Új mappa/3.óra/szines.jpg}}
+    \caption{Tükrözött kép}
+\end{figure}
+
+
+\lipsum[4]
+\newpage
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, keepaspectratio]{C:/Users/au090647/Desktop/Új mappa/3.óra/szepia.jpg}
+        \caption{Első részábra felirata}
+        \label{fig:sub1} % Részábra címke
+    \end{subfigure}
+    \hspace{0.05\textwidth} % Térköz
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, keepaspectratio]{C:/Users/au090647/Desktop/Új mappa/3.óra/szines.jpg}
+        \caption{Második részábra felirata}
+        \label{fig:sub2} % Második részábra címke
+    \end{subfigure}
+    \caption{Ez a teljes ábra felirata}
+    \label{fig:main} % Fő ábra címke
+\end{figure}
+
+% Hivatkozás
+A fő ábra a \ref{fig:main} számú ábra, amely a következő részábrákat tartalmazza: \subref{fig:sub1} és \subref{fig:sub2}.
+\newpage
+
+\section{3.óra 2.feladat}
+
+\begin{table}[htbp]
+    \centering
+    \caption{1. Táblázat címe}
+    \begin{tabular}{>{\centering\arraybackslash}p{30pt} | l | c | r}
+        \toprule
+        1. oszlop & 2. oszlop & 3. oszlop & 4. oszlop \\
+        \midrule
+        A1 & B1 & C1 & D1 \\
+        A2 & B2 & & D2 \\
+        & B3 & C3 & D3 \\
+        A4 & & C4 & D4 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+% 1. másolata
+\begin{table}[htbp]
+    \centering
+    \caption{1. Táblázat (bal szélső oszlop nélkül)}
+    \begin{tabular}{l | c | r}
+        \toprule
+        1. oszlop & 2. oszlop & 3. oszlop \\
+        \midrule
+        B1 & C1 & D1 \\
+        B2 & & D2 \\
+        B3 & C3 & D3 \\
+        & C4 & D4 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+% 2a váltakozó színezése
+\begin{table}[htbp]
+    \centering
+    \caption{2a. Táblázat: Váltakozó színezés}
+    \begin{tabular}{|l|c|r|}
+        \hline
+        1. oszlop & 2. oszlop & 3. oszlop \\
+        \hline
+        \rowcolor{gray!20} B1 & C1 & D1 \\
+        \hline
+        \rowcolor{white} B2 & C2 & D2 \\
+        \hline
+        \rowcolor{gray!20} B3 & C3 & D3 \\
+        \hline
+        \rowcolor{white} B4 & C4 & D4 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+% 2b.színezett cellák
+\begin{table}[htbp]
+    \centering
+    \caption{2b. Táblázat: Színezett cellák}
+    \begin{tabular}{|>{\columncolor{red!20}}l|>{\columncolor{blue!20}}c|>{\columncolor{green!20}}r|}
+        \hline
+        1. oszlop & 2. oszlop & 3. oszlop \\
+        \hline
+        B1 & C1 & D1 \\
+        \hline
+        B2 & C2 & D2 \\
+        \hline
+        B3 & C3 & D3 \\
+        \hline
+        B4 & C4 & D4 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+    \centering
+    \caption{3. Táblázat: Cellák egyesítése}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \multicolumn{2}{|c|}{1,2 Egyesített oszlop} & 3. oszlop \\ \hline
+        \multirow{2}{*}{Függőleges} & C1 & D1 \\ \cline{2-3}
+        & C2 & 2. D2 \\ \hline
+       B3 & C3 &D3 \\ \hline
+        B4 & \multicolumn{2}{c|}{2,3Egyesített oszlop} \\ \hline
+    \end{tabular}
+\end{table}
+
+
+\begin{wraptable}{r}{0.5\textwidth} % 'r' a jobb, 'l' a bal oldalra helyezéshez
+    \centering
+    \caption{3. Táblázat: Cellák egyesítése}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \multicolumn{2}{|c|}{1,2 Egyesített oszlop} & 3. oszlop \\ \hline
+        \multirow{2}{*}{Függőleges} & C1 & D1 \\ \cline{2-3}
+        & C2 & 2. D2 \\ \hline
+       B3 & C3 &D3 \\ \hline
+        B4 & \multicolumn{2}{c|}{2,3Egyesített oszlop} \\ \hline
+    \end{tabular}
+\end{wraptable}
+
+\lipsum[5]
+\newpage
+
+\section{3.óra 3.feladat}
+
+\begin{verbatim}
+\begin{enumerate}
+    \item Első elem
+    \item Második elem
+    \item Harmadik elem
+\end{enumerate}
+\end{verbatim}
+\newpage
+
+\section{3.óra 4.feladat(Programkód 1)}
+
+
+\lstset{ 
+    language=Python,                 % kód nyelv
+    backgroundcolor=\color{white},   % Háttér
+    basicstyle=\footnotesize,        % betűméret
+    breaklines=true,                 % Sortörés engedélyezése
+    frame=single,                    % Keret
+    keywordstyle=\color{blue},       % Kulcsszavak színe
+    commentstyle=\color{green},      % Megjegyzések színe
+    stringstyle=\color{red},         % Stringek színe
+    tabsize=2,                       % Tabulátorszélesség 2 szóköz
+    columns=flexible,                % Rugalmas oszlopok
+    showstringspaces=false,          % Szóközök
+    numbers=left,                    % Sorszámok
+    numberstyle=\tiny\color{gray},   % Számozás stílus
+    numbersep=5pt,                   % Távolság a számoktól
+    stepnumber=4,                    % sorszám 4
+    frame=lines                   	 % Keret
+}
+
+\begin{lstlisting}[language=Python]
+def binary_search(arr, val, start, end):
+    if start == end:
+        if arr[start] > val:
+            return start
+        else:
+            return start + 1
+    elif start > end:
+        return start
+    else: 
+        mid = (start + end) // 2   Hasznalj egesz osztast
+        if arr[mid] < val:
+            return binary_search(arr, val, mid + 1, end)
+        elif arr[mid] > val:
+            return binary_search(arr, val, start, mid - 1)
+        else:  # arr[mid] = val
+            return mid
+            
+def insertion_sort(arr):
+    for i in range(1, len(arr)):   Hasznalj 'range' helyett 'xrange'
+        val = arr[i]
+        j = binary_search(arr, val, 0, i - 1)
+        arr = arr[:j] + [val] + arr[j:i] + arr[i + 1:]
+    return arr
+\end{lstlisting}
+\newpage
+
+\section{3.óra 5.feladat(Programkód 2)}
+
+\lstset{ 
+    language=Python,                 		% kód nyelv
+     backgroundcolor=\color{lightgray},   	% Háttér
+    basicstyle=\footnotesize,        		% betűméret
+    breaklines=true,                 		% Sortörés engedélyezése
+    frame=single,                   		% Keret
+    keywordstyle=\color{red},       		% Kulcsszavak színe
+    commentstyle=\color{gray},      		% Megjegyzések színe
+    stringstyle=\color{red},         		% Stringek színe
+    tabsize=2,                       		% Tabulátorszélesség 2 szóköz
+    columns=flexible,                		% Rugalmas oszlopok
+    showstringspaces=false,          		% Szóközök
+    numbers=left,                    		% Sorszámok
+    numberstyle=\tiny\color{gray},   		% Számozás stílus
+    numbersep=5pt,                   		% Távolság a számoktól
+    stepnumber=4,                    		% sorszám 4
+    frame=lines                   	 		% Keret
+    morekeywords={def},              		% Függvények kiemelése
+    keywordstyle=[2]\color{blue}, 			% Külön szín a 'def' kulcsszónak
+}
+    
+\begin{lstlisting}
+
+// this is just a code snippet saved from the internet
+// for LaTeX code input testing
+
+binarySearch(arr, x, low, high)
+	repeat till low = high
+		mid = (low + high)/2
+			if (x == arr[mid])
+				return mid
+
+			else if (x > arr[mid])	// x is on the right side
+				low = mid + 1
+
+			else			// x is on the left side
+				high = mid - 1
+
+recursiveBinarySearch(arr, x, low, high)
+	if low > high
+		return False
+
+	else
+		mid = (low + high) / 2
+		if x == arr[mid]
+			return mid
+
+		else if x > arr[mid]	// x is on the right side
+			return binarySearch(arr, x, mid + 1, high)
+
+		else			// x is on the left side
+			return binarySearch(arr, x, low, mid - 1)
+
+// ok bye
+\end{lstlisting}
+% Kód formázás megőrzése keret nélkül
+\lstset{frame=none} % Keret eltávolítás
+\newpage
+
+\section{3.óra 6.feladat}
+
+% Külön környezet Python kódoknak
+\newfloat{pythoncode}{htbp}{lop}
+\floatname{pythoncode}{Python Kód}
+
+% Külön környezet C kódoknak
+\newfloat{ccode}{htbp}{loc}
+\floatname{ccode}{C Kód}
+
+% Listings beállítások
+\lstset{ 
+    backgroundcolor=\color{lightgray}, % Háttérszín világos szürke
+    basicstyle=\footnotesize,          % Alapértelmezett betűméret
+    breaklines=true,                   % Sortörés engedélyezése
+    tabsize=2,                         % Tabulátorszélesség 2 szóköz
+    numbers=left,                      % Sorok számozása bal oldalon
+    numberstyle=\tiny\color{gray},     % Számozás stílusa
+}
+
+
+
+\section*{Példa Kódok}
+
+% Python kód környezet
+
+\begin{pythoncode}
+\caption{Példa Python kód}
+\begin{lstlisting}[language=Python]
+
+def hello_world():
+    print("Hello, World!")
+\end{lstlisting}
+\end{pythoncode}
+
+% C kód környezet
+\begin{ccode}
+\caption{Példa C kód}
+\begin{lstlisting}[language=C]
+#include <stdio.h>
+
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}
+\end{lstlisting}
+\end{ccode}
+
+% Módosított C kód környezet
+\begin{ccode}
+\caption{Módosított C kód: Másik Függvény}
+\begin{lstlisting}[language=C]
+#include <stdio.h>
+
+void hello_world() {
+    printf("Hello, World!\n");
+}
+
+int main() {
+    hello_world();
+    return 0;
+}
+\end{lstlisting}
+\end{ccode}
+\end{document}

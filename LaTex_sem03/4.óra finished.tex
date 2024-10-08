@@ -1,0 +1,103 @@
+\documentclass{article}
+\usepackage{amsthm} % tételhez szükséges csomag
+\newtheorem{theorem}{Tétel}
+
+\begin{document}
+
+\begin{theorem}
+Ez egy egyszerű tétel.
+\end{theorem}
+
+\begin{theorem}[Takács Antal Levente] 
+Ez egy másik tétel szerzővel és névvel.
+\end{theorem}
+
+\newtheorem{lemma}[theorem]{Lemma} 
+
+\begin{lemma}
+Ez egy lemma.
+\label{lem:lemma}
+\end{lemma}
+
+\theoremstyle{definition} % tétel stílusának megváltoztatása
+\newtheorem{definition}{Definíció}[section] 
+
+\section{Első szakasz}
+
+\begin{definition}
+Első definíció az első szakaszban.
+\end{definition}
+
+\begin{definition}
+Második definíció az első szakaszban.
+\end{definition}
+
+\section{Második szakasz}
+
+\begin{definition}
+Első definíció a második szakaszban.
+\end{definition}
+
+\begin{proof}
+Ez a bizonyítás a Lemma bizonyításához tartozik. Lásd \ref{lem:lemma}. % kereszthivatkozás
+\end{proof}
+\newpage
+
+Az \( \frac{1}{n^2} \) sorösszege: 
+\[
+\sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}.
+\]
+
+A \( n! \) (n faktoriális) a számok szorzata 1-től n-ig, azaz:
+\[
+n! = \prod_{k=1}^{n} k = 1 \cdot 2 \cdot \ldots \cdot n.
+\]
+
+Legyen \( 0 \leq k \leq n \). A binomiális együttható:
+\[
+\binom{n}{k} = \frac{n!}{k!(n-k)!}.
+\]
+
+DeclareMathOperator*{\argmax}{arg\,max} % argmax operátor definiálása
+
+x^* = \argmax_{x \in [0,1]} x \log_2(x)
+
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+
+\[
+\ceil{x}, \quad \ceil{\frac{5}{3}}
+\]
+
+\newcommand{\E}[1]{\mathbb{E}\left[#1\right]}
+
+\[
+\E{X_i}, \quad \E{\sum_{i=1}^{N} X_i}
+\]
+
+\newcommand{\CE}[2]{\mathbb{E}\left[#1 \, \middle| \, #2\right]}
+
+\[
+\CE{X_i}{X_j}, \quad \CE{\sum_{i=1}^{N} X_i}{N}
+\]
+\newpage
+
+\begin{align}
+(a + b)^{n+1} &= (a+b) \cdot \left( \sum_{k=0}^n \binom{n}{k} a^{n-k}b^k \right) \\
+              &= \sum_{k=0}^n \binom{n}{k} a^{n+1-k}b^k + \sum_{k=1}^{n+1} \binom{n}{k-1} a^{n+1-k}b^k
+\end{align}
+
+
+\begin{table}[htbp]
+    \centering
+    \caption{Táblázat példa}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \multicolumn{2}{|c|}{1,2 Egyesített oszlop} & 3. oszlop \\ \hline
+        \multirow{2}{*}{Függőleges} & C1 & D1 \\ \cline{2-3}
+        & C2 & D2 \\ \hline
+    \end{tabular}
+\end{table}
+
+
+
+\end{document}

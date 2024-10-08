@@ -1,0 +1,95 @@
+\documentclass{article}
+\usepackage{t1enc} % mindig az első sor
+%láthatatlan beállítások rész PREAMBULUM
+%filebeállítások, csomagtöltések
+\usepackage[magyar]% kommentben sortörés sem dolgozza fel
+%alapvetően panarncs nem tördelhet szőközzel, sortöréssel,de kommentel be lehet csapni
+{babel}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{graphicx}
+%undefined control sequence: nem ismert parancs
+%megoldás: elgépelés, vagy csomaghiány
+%\usepackage{•}
+% % = Komment
+\begin{document}
+
+%%címhez: KÜLÖN ADATBEVITEL + KIIRATÁS
+%adatbevitel:
+\title{Dokumentum címe} % lehet benne formázás, sortörés, stb.: pl.: alcím
+\author{Takács Antal Levente}
+\date{2024/2025\\I. félév}
+% Üresen nincsen dátum
+
+%kiíratás
+\maketitle 
+
+$\emptyset$ % $ - "matematikai mód"
+
+vezérlő karakterek: egyetlen speciális karakterből álló parancsok:
+% $ " _ \ # &
+backslash + spec karakterek
+\$ \& ..... \'a \"a \H \\
+Nem üres a dokumentumtörzs
+		valami
+	valami más
+
+\textit{Dőlt betű} már nem% ctrl + i
+
+{\itshape{dőlt betű} dőlt-e? yessir!
+\\
+ilyenkor blokk végéig, visszavonásig dőlt marad
+\scshape kiskapitálisra váltottunk, blokk vége egyik sem érvényes már
+}\par
+\textit{dőlt betűs dőlt betű...
+\textbf{vastag betű} }
+%Olyat nem lehet, hogy \begin(A) \ begin(B) \end(A) \ end(B)
+%Csak beágyazás, átlapolás nem !!!!!!
+Új bekezdés.\par 
+megint új bekezdés\\
+sortörés\newline
+másik sortörés
+
+Egy mondat. Még egy mondat: és folytatjuk
+
+\frenchspacing
+Egy mondat. Még egy mondat: és folytatjuk
+
+``magyar idézőjel" %bal: altgr + 7*2 ; jobb: altgr + szimpla aposztróf*2
+\today % mai dátum
+
+\selectlanguage{english}
+``angol idézőjel" \ today
+
+\begin{center}
+{\Huge 2. Feladat}
+\end{center}
+\textbf{Ez a szöveg vastag betűs}\\
+\textsc {Ez a szöveg kiskapitális}\\
+\textit{Ez a szöveg dőlt betűs}\\
+\textsl{Ez a szöveg salanted}\\
+\textsf{Ez a szöveg sans serif}\\
+\emph{\textbf{Ez a szöveg vastag betűs}}\\
+\emph{\scshape {Ez a szöveg kiskapitális}}\\
+\emph{\textit{Ez a szöveg dőlt betűs}}\\
+
+
+
+\begin{center}
+{\Huge 3. Feladat}
+\end{center}
+\textsf{egy mondaton belül emeljünk egy szót {\large nagyobb betűmérettel}, egy másik
+szót pedig váltsunk \textsc {Csupa nagybetűre!}}\\
+
+\begin{center}
+{\Huge 4. Feladat}
+\end{center}
+\textcolor{pink}{pink szöveg}\\
+\colorbox{pink}{szöveg pink háttérrel}\\
+\reflectbox{\fcolorbox{blue}{white}{Függőleges tükrözés}}\\
+\scalebox{1}[-1]{\scalebox{2.0}{tükrözött szöveg.}}\\
+\rotatebox{90}{90°-al elforgatott szöveg}\\
+\rotatebox{270}{270°-al elforgatott szöveg}\\
+\textcolor{white}{\colorbox{black}{Invertált szöveg.}}\\
+\fcolorbox{red}{white}{\textcolor{red}{piros szöveg, piros kerettel}}
+\end{document}
